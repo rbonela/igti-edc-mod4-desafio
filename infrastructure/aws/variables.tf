@@ -1,9 +1,9 @@
 variable "region_id" {
-  default = "us-east-1"
+  default = "us-east-2"
 }
 
 variable "prefix" {
-  default = "prefix"
+  default = "edc-mod4"
 }
 
 variable "account" {
@@ -28,8 +28,9 @@ variable "bucket_names" {
   type        = list(string)
   default = [
     "landing-zone",
-    "processing-zone",
-    "delivery-zone"
+    "staging-zone",
+    "delivery-zone",
+    "emr-code"
   ]
 }
 
@@ -39,7 +40,7 @@ variable "database_names" {
   default = [
     #landing-zone
     "dl_landing_zone",
-    "dl_rocessing_zone",
+    "dl_staging_zone",
     "dl_delivery_zone"
   ]
 }
@@ -48,8 +49,6 @@ variable "bucket_paths" {
   description = "Paths to S3 bucket used by the crawler"
   type        = list(string)
   default = [
-    "s3://landing-zone-774178677404",
-    "s3://processing-zone-774178677404",
-    "s3://delivery-zone-774178677404"
+    "s3://edc-mod4-staging-zone-774178677404/enade/",
   ]
 }
