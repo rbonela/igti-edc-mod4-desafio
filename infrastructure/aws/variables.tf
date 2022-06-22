@@ -12,7 +12,7 @@ variable "account" {
 
 # Prefix configuration and project common tags
 locals {
-  prefix = "${var.prefix}-${terraform.workspace}"
+  prefix = "${var.prefix}"
   common_tags = {
     Project      = "Desafio-Mod4-IGTI"
     ManagedBy    = "Terraform"
