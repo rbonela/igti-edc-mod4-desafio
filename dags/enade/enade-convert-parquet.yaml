@@ -1,8 +1,8 @@
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
-  name: job-pyspark-batch-346e0ba6
-  namespace: processing
+  name: job-pyspark-batch-{{ macros.datetime.now().strftime("%Y-%m-%d-%H-%M-%S") }}
+  namespace: airflow
 spec:
   volumes:
     - name: ivy
