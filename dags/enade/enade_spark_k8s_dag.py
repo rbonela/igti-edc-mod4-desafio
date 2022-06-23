@@ -36,7 +36,7 @@ with DAG(
     converte_parquet = SparkKubernetesOperator(
         task_id='convert_parquet',
         namespace="airflow",
-        application_file="enade_convert_parquet.yaml",
+        application_file="enade-convert-parquet.yaml",
         kubernetes_conn_id="kubernetes_default",
         do_xcom_push=True,
     )
