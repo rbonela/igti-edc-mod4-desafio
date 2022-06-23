@@ -31,7 +31,7 @@ with DAG(
     schedule_interval="0 */2 * * *",
     start_date=days_ago(1),
     catchup=False,
-    tags=['spark', 'kubernetes', 'batch', 'enem'],
+    tags=['spark', 'kubernetes', 'batch', 'enade'],
 ) as dag:
     convert_parquet = SparkKubernetesOperator(
         task_id='convert_parquet',

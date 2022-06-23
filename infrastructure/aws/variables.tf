@@ -46,9 +46,7 @@ variable "database_names" {
 }
 
 variable "bucket_paths" {
-  description = "Paths to S3 bucket used by the crawler"
-  type        = list(string)
-  default = [
-    "s3://edc-mod4-staging-zone-774178677404/enade/",
-  ]
+  description = "Path to S3 bucket used by the crawler"
+  type        = string
+  default = "s3://edc-mod4-staging-zone-774178677404/enade/"
 }

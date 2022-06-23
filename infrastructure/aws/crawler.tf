@@ -4,7 +4,7 @@ resource "aws_glue_crawler" "glue_crawler" {
   role          = aws_iam_role.glue_role.arn
 
   s3_target {
-    path = "s3a://edc-mod4-processing-zone-774178677404/enade/"
+    path = var.bucket_paths
   }
 
   tags = local.common_tags
