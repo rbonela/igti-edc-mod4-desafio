@@ -33,7 +33,7 @@ with DAG(
     catchup=False,
     tags=['spark', 'kubernetes', 'batch', 'enem'],
 ) as dag:
-    converte_parquet = SparkKubernetesOperator(
+    convert_parquet = SparkKubernetesOperator(
         task_id='convert_parquet',
         namespace="airflow",
         application_file="enade-convert-parquet.yaml",
@@ -41,7 +41,7 @@ with DAG(
         do_xcom_push=True,
     )
 
-    converte_parquet_monitor = SparkKubernetesSensor(
+    convert_parquet_monitor = SparkKubernetesSensor(
         task_id='convert_parquet_monitor',
         namespace="airflow",
         application_name="{{ task_instance.xcom_pull(task_ids='convert_parquet')['metadata']['name'] }}",
@@ -52,4 +52,4 @@ with DAG(
         python_callable=trigger_crawler_enade_func,
     )
 
-converte_parquet >> converte_parquet_monitor >> trigger_crawler_enade
+convert_parquet >> convert_parquet_monitor >> trigger_crawler_enade
