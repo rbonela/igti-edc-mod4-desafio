@@ -14,3 +14,11 @@ resource "aws_s3_object" "spark-operator" {
   source   = "../../dags/enade/pyspark/${each.value}"
   etag     = filemd5("../../dags/enade/pyspark/${each.value}")
 }
+
+resource "aws_s3_object" "dag-yaml-file" {
+  bucket   = aws_s3_bucket.buckets[3].id
+  key      = "rb/enade-convert-parquet.yaml"
+  acl      = "private" # or can be "public-read"
+  source   = "../../dags/enade/enade-convert-parquet.yaml"
+  etag     = filemd5("../../dags/enade/enade-convert-parquet.yaml")
+}
