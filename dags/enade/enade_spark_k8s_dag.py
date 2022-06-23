@@ -18,7 +18,7 @@ def trigger_crawler_enade_func():
         glue.start_crawler(Name='enade_crawler')
 
 with DAG(
-    'enem_batch_spark_k8s',
+    'enade_batch_spark_k8s',
     default_args={
         'owner': 'Ramon',
         'depends_on_past': False,
