@@ -44,7 +44,7 @@ with DAG(
     converte_parquet_monitor = SparkKubernetesSensor(
         task_id='convert_parquet_monitor',
         namespace="airflow",
-        application_name="{{ task_instance.xcom_pull(task_ids='converte_parquet')['metadata']['name'] }}",
+        application_name="{{ task_instance.xcom_pull(task_ids='convert_parquet')['metadata']['name'] }}",
         kubernetes_conn_id="kubernetes_default",
     )
     trigger_crawler_enade= PythonOperator(
