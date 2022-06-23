@@ -44,7 +44,7 @@ if __name__ == "__main__":
     .write
     .mode("overwrite")
     .format("parquet")
-    .save("s3a://edc-mod4-processing-zone-774178677404/enade/2017/")
+    .save("s3a://edc-mod4-staging-zone-774178677404/enade/2017/")
     )
 
     print("*****************")
